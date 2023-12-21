@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="normalize.css" />
+    <link rel="stylesheet" href="style.css" />
+
+    <title>Oumar Yanni | Interactive card details form app</title>
+  </head>
+  <body>
+    <div class="container">
+      <form class="form-card-app" action="" name="form-card-app">
+        <div class="form-groups-wrapper-1">
+          <div class="form-group-back-card">
+            <div class="back-card-black-headband"></div>
+
+            <div class="back-card-verification-value-band">000</div>
+          </div>
+
+          <div class="form-group-front-card">
+            <div class="front-card-circles">
+              <span class="front-card-full-circle"></span>
+              <span class="front-card-empty-circle"></span>
+            </div>
+
+            <div class="front-card-number-result">0000 0000 0000 0000</div>
+
+            <div class="front-card-details">
+              <div class="front-card-holder-name-result"></div>
+              <div class="front-card-dates-result">
+                <span class="front-card-month-result">00</span>
+                /
+                <span class="front-card-year-result">00</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-groups-wrapper-2">
+          <div class="form-group-card-details">
+            <label for="card-details-holder-name" class="label"
+              >CARDHOLDER NAME</label
+            >
+            <input
+              id="card-details-holder-name"
+              type="number"
+              name="card-details-holder-name"
+              placeholder="e.g. Jane Appleseed"
+            />
+
+            <label for="card-details-number" class="label">CARD NUMBER</label>
+            <input
+              id="card-details-number"
+              type="number"
+              name="card-details-number"
+              placeholder="e.g. 1234 5678 9123 0000"
+            />
+
+            <div class="card-details-other-wrapper">
+              <label
+                for="card-details-month-input card-details-year-input"
+                class="label"
+                >EXP. DATE (MM/YY)</label
+              >
+              <input
+                id="card-details-month-input"
+                type="number"
+                name="card-details-month-input"
+                placeholder="MM"
+              />
+
+              <input
+                id="card-details-year-input"
+                type="number"
+                name="card-details-year-input"
+                placeholder="YY"
+              />
+
+              <label for="card-details-cvc-input" class="label">CVC</label>
+              <input
+                id="card-details-cvc-input"
+                type="number"
+                name="card-details-cvc-input"
+                placeholder="e.g 123"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div class="submit-btn-wrapper">
+          <button type="submit" class="display-result-btn">Confirm</button>
+        </div>
+      </form>
+    </div>
+
+    <footer class="footer">
+      <a class="footer-link" href="https://www.linkedin.com/in/oumar-yanni/">
+        💻 Coding passionately by Oumar</a
+      >
+    </footer>
+    <script src="app.js"></script>
+  </body>
+</html>

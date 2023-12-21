@@ -1,0 +1,73 @@
+:root {
+  --white: #ffffff;
+  --violet: #21092f;
+  --mine-shaft: #2f2f2f;
+  --hit-gray: #adb5be;
+  --back-card-gradient-bg: linear-gradient(169deg, #fff 5%, #d2d3d9 91.69%);
+  --front-card-gradient-bg: linear-gradient(
+    164deg,
+    #6348fe 4.74%,
+    #610595 88.83%
+  );
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Space Grotesk", sans-serif;
+  height: 100vh; /* Hauteur égale à X% de la hauteur de la fenêtre du navigateur */
+  width: 100vw; /* Largeur égale à X% de la largeur de la fenêtre du navigateur */
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+}
+
+.form-card-app {
+}
+
+.form-groups-wrapper-1 {
+  background-color: var(--violet);
+  color: var(--white);
+}
+
+.form-group-back-card {
+  background: var(--back-card-gradient-bg);
+  border-radius: 6px;
+  width: 18rem;
+  height: 10rem;
+  padding-top: 1rem;
+}
+
+.back-card-black-headband {
+  background: var(--mine-shaft);
+  width: 18rem;
+  height: 2rem;
+}
+
+.back-card-verification-value-band {
+  background: var(--hit-gray);
+  border-radius: 3px;
+  width: 14rem;
+  height: 2rem;
+}
+
+.form-groups-wrapper-2 {
+  background-color: var(--white);
+}
+
+.footer {
+  @media screen and (min-width: 768px) {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.footer-link {
+  color: var(--violet);
+  font-size: 16px;
+  text-decoration: none;
+}
