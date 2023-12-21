@@ -32,6 +32,11 @@ body {
 .form-groups-wrapper-1 {
   background-color: var(--violet);
   color: var(--white);
+  /*height: 33.33vh;*/
+  display: flex;
+  flex-direction: column;
+
+  position: relative;
 }
 
 .form-group-back-card {
@@ -40,6 +45,13 @@ body {
   width: 18rem;
   height: 10rem;
   padding-top: 1rem;
+  position: relative;
+  align-self: end;
+  /*margin: 2rem 1rem 3rem 4.5rem;*/ /*où utiliser le positionnement relatif*/
+
+  top: 2rem;
+  right: 1rem;
+  z-index: 0;
 }
 
 .back-card-black-headband {
@@ -53,6 +65,74 @@ body {
   border-radius: 3px;
   width: 14rem;
   height: 2rem;
+  text-align: end;
+  padding: 0.5rem;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.form-group-front-card {
+  background: var(--front-card-gradient-bg);
+  border-radius: 6px;
+  width: 18rem;
+  height: 10rem;
+  padding: 1rem;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  position: relative;
+  left: 1rem;
+  /* bottom: 3rem; */
+  top: -2rem;
+}
+
+.front-card-circles {
+  display: flex;
+  align-items: center;
+}
+
+.front-card-full-circle {
+  display: flex;
+  width: 1.8rem;
+  height: 1.8rem;
+  background: var(--white);
+  border-radius: 50%;
+  margin-right: 0.5rem;
+}
+
+.front-card-empty-circle {
+  display: flex;
+  width: 0.9rem;
+  height: 0.9rem;
+  border-radius: 50%;
+  border: 1px solid var(--white);
+}
+
+.front-card-number-result {
+  font-size: 1.45rem;
+  align-self: center;
+}
+
+.front-card-details {
+  display: flex;
+  justify-content: space-between;
+}
+
+.front-card-holder-name-result {
+}
+
+.front-card-dates-result {
+}
+
+.front-card-month-result {
+}
+
+.front-card-year-result {
 }
 
 .form-groups-wrapper-2 {
