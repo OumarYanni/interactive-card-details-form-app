@@ -72,39 +72,41 @@
             />
 
             <div class="card-details-other-wrapper">
-              <label
-                for="card-details-month-input card-details-year-input"
-                class="label"
-                >EXP. DATE (MM/YY)</label
-              >
-              <input
-                id="card-details-month-input"
-                type="number"
-                name="card-details-month-input"
-                placeholder="MM"
-              />
+              <div class="card-details-other-wrapper-second-level">
+                <label for="card-details-dates-input" class="label"
+                  >EXP. DATE (MM/YY)</label
+                >
+                <input
+                  id="card-details-dates-input"
+                  type="number"
+                  name="card-details-month-input"
+                  placeholder="MM"
+                />
 
-              <input
-                id="card-details-year-input"
-                type="number"
-                name="card-details-year-input"
-                placeholder="YY"
-              />
+                <input
+                  id="card-details-dates-input"
+                  type="number"
+                  name="card-details-year-input"
+                  placeholder="YY"
+                />
+              </div>
 
-              <label for="card-details-cvc-input" class="label">CVC</label>
-              <input
-                id="card-details-cvc-input"
-                type="number"
-                name="card-details-cvc-input"
-                placeholder="e.g 123"
-              />
+              <div class="card-details-other-wrapper-second-level">
+                <label for="card-details-cvc-input" class="label">CVC</label>
+                <input
+                  id="card-details-cvc-input"
+                  type="number"
+                  name="card-details-cvc-input"
+                  placeholder="e.g 123"
+                />
+              </div>
             </div>
+
+            <button type="submit" class="display-result-btn">Confirm</button>
           </div>
         </div>
 
-        <div class="submit-btn-wrapper">
-          <button type="submit" class="display-result-btn">Confirm</button>
-        </div>
+        <!-- <div class="submit-btn-wrapper"></div> -->
       </form>
     </div>
 

@@ -32,7 +32,7 @@ body {
 .form-groups-wrapper-1 {
   background-color: var(--violet);
   color: var(--white);
-  /*height: 33.33vh;*/
+  min-height: 15rem;
   display: flex;
   flex-direction: column;
 
@@ -45,11 +45,11 @@ body {
   width: 18rem;
   height: 10rem;
   padding-top: 1rem;
-  position: relative;
+  position: absolute;
   align-self: end;
   /*margin: 2rem 1rem 3rem 4.5rem;*/ /*où utiliser le positionnement relatif*/
 
-  top: 2rem;
+  top: 1.5rem;
   right: 1rem;
   z-index: 0;
 }
@@ -85,10 +85,9 @@ body {
   flex-direction: column;
   justify-content: space-between;
 
-  position: relative;
+  position: absolute;
   left: 1rem;
-  /* bottom: 3rem; */
-  top: -2rem;
+  top: 7.5rem;
 }
 
 .front-card-circles {
@@ -137,9 +136,109 @@ body {
 
 .form-groups-wrapper-2 {
   background-color: var(--white);
+  min-height: 22rem;
+  padding: 3rem 1.5rem 0 1.5rem;
+}
+
+.form-group-card-details {
+  min-height: inherit;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.label {
+  font-size: 12px;
+  font-weight: 500;
+  flex-basis: 100%;
+}
+
+.card-details-holder-name {
+}
+
+#card-details-holder-name {
+  margin-top: 0.3rem;
+  margin-bottom: 1rem;
+  height: 2.8rem;
+  border-radius: 8px;
+  border: 1px solid var(--hit-gray);
+}
+
+#card-details-number {
+  margin-top: 0.3rem;
+  margin-bottom: 1rem;
+  height: 2.8rem;
+  border-radius: 8px;
+  border: 1px solid var(--hit-gray);
+}
+
+.card-details-other-wrapper {
+  display: flex;
+}
+
+.card-details-other-wrapper-second-level {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#card-details-dates-input {
+  margin-top: 0.3rem;
+  margin-bottom: 1rem;
+  margin-right: 0.5rem;
+  height: 2.8rem;
+  border-radius: 8px;
+  border: 1px solid var(--hit-gray);
+
+  width: 4.5rem;
+}
+
+/*.card-details-dates-label {
+  font-size: 12px;
+  flex-basis: 100%;
+}*/
+
+/*#card-details-year-input {
+  margin-top: 0.3rem;
+  margin-bottom: 1rem;
+  height: 2.8rem;
+  border-radius: 8px;
+  border: 1px solid var(--hit-gray);
+
+  width: 4.5rem;
+}*/
+
+#card-details-cvc-input {
+  margin-top: 0.3rem;
+  margin-bottom: 1rem;
+  height: 2.8rem;
+  border-radius: 8px;
+  border: 1px solid var(--hit-gray);
+
+  width: 10.25rem;
+}
+
+/*.card-details-cvc-label {
+  font-size: 12px;
+}*/
+
+/*.submit-btn-wrapper {
+  display: flex;
+  justify-content: center;
+}*/
+
+.display-result-btn {
+  width: 20rem;
+  height: 3rem;
+  border-radius: 8px;
+  background: var(--violet);
+  color: var(--white);
 }
 
 .footer {
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+
   @media screen and (min-width: 768px) {
     display: flex;
     justify-content: center;
