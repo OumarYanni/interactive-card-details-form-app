@@ -3,6 +3,7 @@
   --violet: #21092f;
   --mine-shaft: #2f2f2f;
   --hit-gray: #adb5be;
+  --mamba: #8f8694;
   --back-card-gradient-bg: linear-gradient(169deg, #fff 5%, #d2d3d9 91.69%);
   --front-card-gradient-bg: linear-gradient(
     164deg,
@@ -24,9 +25,18 @@ body {
 }
 
 .container {
+  @media screen and (min-width: 768px) {
+    display: flex;
+    /* flex-direction: row; */
+    height: 100vh;
+  }
 }
 
 .form-card-app {
+  @media screen and (min-width: 768px) {
+    display: flex;
+    width: 100%;
+  }
 }
 
 .form-groups-wrapper-1 {
@@ -37,6 +47,11 @@ body {
   flex-direction: column;
 
   position: relative;
+
+  @media screen and (min-width: 768px) {
+    min-height: 25%;
+    min-width: 25%;
+  }
 }
 
 .form-group-back-card {
@@ -52,6 +67,11 @@ body {
   top: 1.5rem;
   right: 1rem;
   z-index: 0;
+
+  @media screen and (min-width: 768px) {
+    top: 66%;
+    right: -30%;
+  }
 }
 
 .back-card-black-headband {
@@ -139,7 +159,18 @@ body {
   min-height: 22rem;
   padding: 3rem 1.5rem 0 1.5rem;
 
-  display: none;
+  /*display: none;*/
+
+  @media screen and (min-width: 768px) {
+    min-height: 75%;
+    min-width: 75%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: none;
+  }
 }
 
 .form-group-card-details {
@@ -251,4 +282,31 @@ body {
   color: var(--violet);
   font-size: 16px;
   text-decoration: none;
+}
+
+.form-groups-wrapper-complete {
+  background-color: var(--white);
+  min-height: 22rem;
+  padding: 3rem 1.5rem 0 1.5rem;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+
+  display: none;
+}
+
+.icon-complete {
+  width: 5rem;
+  height: 5rem;
+}
+
+.thanks-message-complete {
+  font-weight: 500;
+  font-size: 1.7rem;
+}
+
+.information-message-complete {
+  color: var(--mamba);
 }
