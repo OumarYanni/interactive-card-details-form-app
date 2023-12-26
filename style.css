@@ -69,8 +69,8 @@ body {
   z-index: 0;
 
   @media screen and (min-width: 768px) {
-    top: 45rem;
-    right: -9rem;
+    top: 25rem;
+    right: -10rem;
   }
 }
 
@@ -110,8 +110,8 @@ body {
   top: 7.5rem;
 
   @media screen and (min-width: 768px) {
-    top: 30rem;
-    left: 17rem;
+    top: 12rem;
+    left: 3rem;
   }
 }
 
@@ -206,6 +206,10 @@ body {
   }
 }
 
+input:focus {
+  border: 1px solid var(--front-card-gradient-bg);
+}
+
 .card-details-holder-name {
 }
 
@@ -219,7 +223,6 @@ body {
   padding: 1rem;
 
   @media screen and (min-width: 768px) {
-    /*height: 2.8rem;*/
   }
 }
 
