@@ -4,6 +4,7 @@
   --mine-shaft: #2f2f2f;
   --hit-gray: #adb5be;
   --mamba: #8f8694;
+  --red: #ff5050;
   --back-card-gradient-bg: linear-gradient(169deg, #fff 5%, #d2d3d9 91.69%);
   --front-card-gradient-bg: linear-gradient(
     164deg,
@@ -164,7 +165,7 @@ body {
   min-height: 22rem;
   padding: 3rem 1.5rem 0 1.5rem;
 
-  /*display: none;*/
+  display: none;
 
   @media screen and (min-width: 768px) {
     min-height: 75%;
@@ -175,6 +176,8 @@ body {
     justify-content: center;
     align-items: center;
     min-height: auto;
+
+    display: none;
   }
 }
 
@@ -204,6 +207,15 @@ body {
     font-size: 12px;
     font-weight: 500;
   }
+}
+
+#input-error {
+  border: 1px solid var(--red);
+  display: none;
+}
+
+#input-error:focus {
+  border: 1px solid var(--red);
 }
 
 input:focus {
@@ -337,19 +349,37 @@ input:focus {
   justify-content: space-evenly;
   align-items: center;
 
-  display: none;
+  /*display: none;*/
+
+  @media screen and (min-width: 768px) {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
 }
 
 .icon-complete {
   width: 5rem;
   height: 5rem;
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 2rem;
+  }
 }
 
 .thanks-message-complete {
   font-weight: 500;
   font-size: 1.7rem;
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 2rem;
+  }
 }
 
 .information-message-complete {
   color: var(--mamba);
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 3rem;
+  }
 }
