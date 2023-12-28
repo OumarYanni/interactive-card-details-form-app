@@ -165,7 +165,7 @@ body {
   min-height: 22rem;
   padding: 3rem 1.5rem 0 1.5rem;
 
-  display: none;
+  /*display: none;*/
 
   @media screen and (min-width: 768px) {
     min-height: 75%;
@@ -177,7 +177,7 @@ body {
     align-items: center;
     min-height: auto;
 
-    display: none;
+    /*display: none;*/
   }
 }
 
@@ -349,7 +349,7 @@ input:focus {
   justify-content: space-evenly;
   align-items: center;
 
-  /*display: none;*/
+  display: none;
 
   @media screen and (min-width: 768px) {
     width: 100%;
