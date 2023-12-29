@@ -209,14 +209,20 @@ body {
   }
 }
 
-#input-error {
-  border: 1px solid var(--red);
-  display: none;
+.label-error {
+  color: var(--red);
 }
 
-#input-error:focus {
-  border: 1px solid var(--red);
+.input-error {
+  /*border: 1px solid var(--red);*/
+  /*display: none;*/
+  color: var(--red);
+  padding-bottom: 0.5rem;
 }
+
+/*.input-error:focus {
+  border: 1px solid var(--red);
+}*/
 
 input:focus {
   border: 1px solid var(--front-card-gradient-bg);

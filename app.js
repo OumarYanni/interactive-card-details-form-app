@@ -8,11 +8,9 @@ form.addEventListener("submit", function (e) {
     "#card-details-holder-name"
   ).value;
 
-  console.log(cardHolderNameInputValue);
+  //console.log(cardHolderNameInputValue);
 
-  const isCardHolderNameValid = isCardHolderNameInputValid(
-    cardHolderNameInputValue
-  );
+  const isCardHolderNameValid = isCardHolderNameInputValid();
 
   if (isCardHolderNameValid) {
     submitForm(cardHolderNameInputValue);
@@ -23,8 +21,8 @@ const cardHolderNameInputElement = document.querySelector(
   "#card-details-holder-name"
 );
 
-function isCardHolderNameInputValid(cardHolderNameInputValue) {
-  let cardHolderNameErrorElement = document.querySelector("#input-error");
+function isCardHolderNameInputValid() {
+  let cardHolderNameErrorElement = document.querySelector(".input-error");
   let cardHolderNameLabelElement = document.querySelector(
     "label[for='card-details-holder-name']"
   );
