@@ -214,8 +214,18 @@ body {
 }
 
 .input-error {
-  /*border: 1px solid var(--red);*/
+  border: 1px solid var(--red);
   /*display: none;*/
+
+  color: var(--red);
+  padding-bottom: 0.5rem;
+}
+
+#card-holder-name-error,
+#card-number-error,
+#month-error,
+#year-error,
+#cvc-error {
   color: var(--red);
   padding-bottom: 0.5rem;
 }
