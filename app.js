@@ -9,10 +9,9 @@ form.addEventListener("submit", function (e) {
   ).value;
   //console.log(cardHolderNameInputValue);
 
-  const cardNumberInputValue = parseInt(
-    document.querySelector("#card-details-number").value,
-    10
-  );
+  const cardNumberInputValue = document.querySelector(
+    "#card-details-number"
+  ).value;
 
   const isCardHolderNameValid = isCardHolderNameInputValid();
 
@@ -64,6 +63,11 @@ function isCardNumberInputValid() {
     "label[for='card-details-number']"
   );
 
+  const cardNumberInputRawValue = cardNumberInputElement.value.replace(
+    /\s+/g,
+    ""
+  );
+
   cardNumberErrorElement.textContent = "";
 
   cardNumberInputElement.classList.remove("input-error");
@@ -71,6 +75,15 @@ function isCardNumberInputValid() {
 
   if (cardNumberInputElement.value.trim() === "") {
     cardNumberErrorElement.textContent = "Can't be blank";
+
+    cardNumberInputElement.classList.add("input-error");
+    cardNumberLabelElement.classList.add("label-error");
+
+    return false;
+  }
+
+  if (!/^\d{16}$/.test(cardNumberInputRawValue)) {
+    cardNumberErrorElement.textContent = "Wrong format, numbers only";
 
     cardNumberInputElement.classList.add("input-error");
     cardNumberLabelElement.classList.add("label-error");
@@ -92,23 +105,31 @@ const cardHolderNameResult = document.querySelector(
 const cardNumberResult = document.querySelector(".front-card-number-result");
 
 cardHolderNameInputElement.addEventListener("input", function () {
-  displayInputData(
-    cardHolderNameResult,
-    cardHolderNameInputElement.value,
-    cardNumberResult,
-    cardNumberInputElement.value
-  );
+  displayInputData(cardHolderNameResult, cardHolderNameInputElement.value);
 });
 
-function displayInputData(
-  cardHolderNameResult,
-  cardHolderNameValue,
-  cardNumberResult,
-  cardNumberValue
-) {
-  cardHolderNameResult.textContent = cardHolderNameValue;
+cardNumberInputElement.addEventListener("input", function () {
+  let inputValue = cardNumberInputElement.value.replace(/\s+/g, "");
 
-  cardNumberResult.textContent = cardNumberValue;
+  if (inputValue.length > 16) {
+    inputValue = inputValue.substring(0, 16);
+  }
+
+  cardNumberInputElement.value = formatCardNumber(inputValue);
+
+  displayInputData(cardNumberResult, cardNumberInputElement.value);
+});
+
+function formatCardNumber(value) {
+  return value.replace(/(.{4})/g, "$1 ").trim();
+}
+
+function displayInputData(resultElement, inputValue) {
+  /*const formattedValue = inputValue
+    .replace(/(\d{4})(?=\d)/g, "$1 ")
+    .slice(0, 19);*/
+
+  resultElement.textContent = inputValue;
 }
 
 // cardHolderNameInput.addEventListener(
@@ -116,6 +137,7 @@ function displayInputData(
 //   displayInputData
 // );
 
-function submitForm() {
+function submitForm(cardHolderNameInputValue, cardNumberInputValue) {
+  console.log("Card Number:", cardNumberInputValue);
   console.log("Formulaire soumis !");
 }
