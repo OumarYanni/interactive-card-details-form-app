@@ -9,14 +9,10 @@ const form = document.querySelector(".form-card-app");
 form.addEventListener("submit", function (e) {
   e.preventDefault();
 
-  const cardHolderNameInputValue = document.querySelector(
-    "#card-details-holder-name"
-  ).value;
+  const cardHolderNameInputValue = document.querySelector("#holder-name").value;
   //console.log(cardHolderNameInputValue);
 
-  const cardNumberInputValue = document.querySelector(
-    "#card-details-number"
-  ).value;
+  const cardNumberInputValue = document.querySelector("#card-number").value;
 
   const isCardHolderNameValid = isCardHolderNameInputValid();
 
@@ -27,36 +23,31 @@ form.addEventListener("submit", function (e) {
   }
 });
 
-const cardHolderNameInputElement = document.querySelector(
-  "#card-details-holder-name"
-);
+const cardHolderNameInputElement = document.querySelector("#holder-name");
 
 function isCardHolderNameInputValid() {
-  let cardHolderNameErrorElement = document.querySelector(
-    "#card-holder-name-error"
-  );
+  let cardHolderNameErrorElement = document.querySelector(".holder-name-error");
 
   // let cardHolderNameLabelElement
-    // card : /
-    // holder : ✅
-    // name :
-    // label :
-    // element : /
+  // card : /
+  // holder : ✅
+  // name :
+  // label :
+  // element : /
 
-    // let labelDeCartHolderName
-    // let cartholderNameLabel
+  // let labelDeCartHolderName
+  // let cartholderNameLabel
 
   let cardHolderNameLabelElement = document.querySelector(
-    "label[for='card-details-holder-name']"
+    "label[for='holder-name']"
   );
-
 
   // let holderNameErrorMessage
 
   cardHolderNameErrorElement.textContent = "";
 
   //   const cardHolderNameInputElement = document.querySelector(
-  //     "#card-details-holder-name"
+  //     "#holder-name"
   //   );
 
   cardHolderNameInputElement.classList.remove("input-error");
@@ -74,12 +65,12 @@ function isCardHolderNameInputValid() {
   return true;
 }
 
-const cardNumberInputElement = document.querySelector("#card-details-number");
+const cardNumberInputElement = document.querySelector("#card-number");
 
 function isCardNumberInputValid() {
-  let cardNumberErrorElement = document.querySelector("#card-number-error");
+  let cardNumberErrorElement = document.querySelector(".card-number-error");
   let cardNumberLabelElement = document.querySelector(
-    "label[for='card-details-number']"
+    "label[for='card-number']"
   );
 
   const cardNumberInputRawValue = cardNumberInputElement.value.replace(
@@ -113,15 +104,13 @@ function isCardNumberInputValid() {
   return true;
 }
 
-// const cardHolderNameInput = document.querySelector("#card-details-holder-name");
+// const cardHolderNameInput = document.querySelector("#holder-name");
 // console.log(cardHolderNameInput);
 
-const cardHolderNameResult = document.querySelector(
-  ".front-card-holder-name-result"
-);
+const cardHolderNameResult = document.querySelector(".holder-name-result");
 //console.log(cardHolderNameResult);
 
-const cardNumberResult = document.querySelector(".front-card-number-result");
+const cardNumberResult = document.querySelector(".card-number-result");
 
 cardHolderNameInputElement.addEventListener("input", function () {
   displayInputData(cardHolderNameResult, cardHolderNameInputElement.value);
@@ -152,7 +141,7 @@ function displayInputData(resultElement, inputValue) {
 }
 
 // cardHolderNameInput.addEventListener(
-//   "#card-details-holder-name",
+//   "#holder-name",
 //   displayInputData
 // );
 

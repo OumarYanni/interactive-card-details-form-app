@@ -27,27 +27,26 @@
     <div class="container">
       <!-- Wrapper pour affichage de la carte bleue -->
       <div class="card-results">
-
         <div class="card-results-inner-wrapper">
-          <div class="form-group-back-card">
-            <div class="back-card-black-headband"></div>
-            <p class="back-card-verification-value-band">000</p>
+          <div class="back-card">
+            <div class="black-headband"></div>
+            <p class="verification-value-band">000</p>
           </div>
-  
-          <div class="form-group-front-card">
-            <div class="front-card-circles">
-              <span class="front-card-full-circle"></span>
-              <span class="front-card-empty-circle"></span>
+
+          <div class="front-card">
+            <div class="circles-wrapper">
+              <span class="full-circle"></span>
+              <span class="empty-circle"></span>
             </div>
-  
-            <p class="front-card-number-result">0000 0000 0000 0000</p>
-  
+
+            <p class="card-number-result">0000 0000 0000 0000</p>
+
             <div class="front-card-details">
-              <p class="front-card-holder-name-result">Jane Appleseed</p>
-              <div class="front-card-dates-result">
-                <span class="front-card-month-result">00</span>
+              <p class="holder-name-result">Jane Appleseed</p>
+              <div class="dates-result">
+                <span class="month-result">00</span>
                 /
-                <span class="front-card-year-result">00</span>
+                <span class="year-result">00</span>
               </div>
             </div>
           </div>
@@ -57,32 +56,32 @@
 
       <form class="form-card-app" action="" name="form-card-app">
         <div class="form-group-card-details">
-          <label for="card-details-holder-name" class="label-without-flex-basis"
+          <label for="holder-name" class="label-without-flex-basis"
             >CARDHOLDER NAME</label
           >
           <input
-            id="card-details-holder-name"
+            id="holder-name"
             type="text"
-            name="card-details-holder-name"
+            name="holder-name"
             placeholder="e.g. Jane Appleseed"
           />
-          <span class="" id="card-holder-name-error"></span>
+          <span class="holder-name-error"></span>
 
-          <label for="card-details-number" class="label-without-flex-basis"
+          <label for="card-number" class="label-without-flex-basis"
             >CARD NUMBER</label
           >
           <input
-            id="card-details-number"
+            id="card-number"
             type="number"
-            name="card-details-number"
+            name="card-number"
             placeholder="e.g. 1234 5678 9123 0000"
             maxlength="19"
           />
-          <span class="" id="card-number-error"></span>
+          <span class="card-number-error"></span>
           <!--  <span class="error" id="input-error"></span> -->
 
-          <div class="card-details-other-wrapper">
-            <div class="card-details-other-wrapper-second-level">
+          <div class="dates-cvc-container">
+            <div class="dates-cvc-wrapper">
               <label for="card-details-dates-input" class="label"
                 >EXP. DATE (MM/YY)</label
               >
@@ -105,15 +104,15 @@
               <!-- <span class="error" id="input-error"></span> -->
             </div>
 
-            <div class="card-details-other-wrapper-second-level">
-              <label for="card-details-cvc-input" class="label">CVC</label>
+            <div class="dates-cvc-wrapper">
+              <label for="card-cvc" class="label">CVC</label>
               <input
-                id="card-details-cvc-input"
+                id="card-cvc"
                 type="number"
-                name="card-details-cvc-input"
+                name="card-cvc"
                 placeholder="e.g 123"
               />
-              <span class="" id="cvc-error"></span>
+              <span class="cvc-error"></span>
               <!-- <span class="error" id="input-error"></span> -->
             </div>
           </div>
@@ -138,10 +137,8 @@
           alt=""
         />
 
-        <h1 class="thanks-message-complete">THANK YOU!</h1>
-        <p class="information-message-complete">
-          We've added your card details
-        </p>
+        <h1 class="thanks-message">THANK YOU!</h1>
+        <p class="information-message">We've added your card details</p>
 
         <button type="submit" class="display-result-btn">Continue</button>
       </div>
