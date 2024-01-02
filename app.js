@@ -1,6 +1,11 @@
 const form = document.querySelector(".form-card-app");
 //console.log(form);
 
+// 1. Variables globales (limite au maximum)
+// 2. Fonctions
+// 2.1. utilitaires (e.g. : isCardHolderNameInputValid)
+// 2.2. binding eventListeners
+
 form.addEventListener("submit", function (e) {
   e.preventDefault();
 
@@ -30,9 +35,23 @@ function isCardHolderNameInputValid() {
   let cardHolderNameErrorElement = document.querySelector(
     "#card-holder-name-error"
   );
+
+  // let cardHolderNameLabelElement
+    // card : /
+    // holder : ✅
+    // name :
+    // label :
+    // element : /
+
+    // let labelDeCartHolderName
+    // let cartholderNameLabel
+
   let cardHolderNameLabelElement = document.querySelector(
     "label[for='card-details-holder-name']"
   );
+
+
+  // let holderNameErrorMessage
 
   cardHolderNameErrorElement.textContent = "";
 

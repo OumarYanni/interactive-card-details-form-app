@@ -19,40 +19,53 @@
 
 body {
   font-family: "Space Grotesk", sans-serif;
-  height: 100vh; /* Hauteur égale à X% de la hauteur de la fenêtre du navigateur */
-  width: 100vw; /* Largeur égale à X% de la largeur de la fenêtre du navigateur */
+  min-height: 100vh; /* Hauteur égale à X% de la hauteur de la fenêtre du navigateur */
+  min-width: 100vw; /* Largeur égale à X% de la largeur de la fenêtre du navigateur */
   margin: 0;
   padding: 0;
 }
 
+.hidden {
+  display: none !important;
+}
+
 .container {
   @media screen and (min-width: 768px) {
-    display: flex;
-    /* flex-direction: row; */
     height: 100vh;
   }
 }
 
 .form-card-app {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+
   @media screen and (min-width: 768px) {
     display: flex;
     width: 100%;
   }
 }
 
-.form-groups-wrapper-1 {
+.card-results {
   background-color: var(--violet);
   color: var(--white);
   min-height: 15rem;
   display: flex;
   flex-direction: column;
-
-  position: relative;
+  margin-bottom: 4rem;
 
   @media screen and (min-width: 768px) {
     min-height: 25%;
     min-width: 25%;
   }
+}
+
+.card-results-inner-wrapper {
+  position: relative;
+  width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+  min-height: 15rem;
 }
 
 .form-group-back-card {
@@ -63,16 +76,10 @@ body {
   padding-top: 1rem;
   position: absolute;
   align-self: end;
-  /*margin: 2rem 1rem 3rem 4.5rem;*/ /*où utiliser le positionnement relatif*/
 
-  top: 1.5rem;
-  right: 1rem;
+  top: 20px;
+  right: -40px;
   z-index: 0;
-
-  @media screen and (min-width: 768px) {
-    top: 25rem;
-    right: -10rem;
-  }
 }
 
 .back-card-black-headband {
@@ -107,13 +114,8 @@ body {
   justify-content: space-between;
 
   position: absolute;
-  left: 1rem;
-  top: 7.5rem;
-
-  @media screen and (min-width: 768px) {
-    top: 12rem;
-    left: 3rem;
-  }
+  left: -40px;
+  bottom: 0px
 }
 
 .front-card-circles {
@@ -188,7 +190,6 @@ body {
   justify-content: center;
 
   @media screen and (min-width: 768px) {
-    width: min-content;
   }
 }
 
@@ -355,7 +356,7 @@ input:focus {
   text-decoration: none;
 }
 
-.form-groups-wrapper-complete {
+.thank-you-message-wrapper {
   background-color: var(--white);
   min-height: 22rem;
   padding: 3rem 1.5rem 0 1.5rem;
@@ -364,8 +365,6 @@ input:focus {
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-
-  display: none;
 
   @media screen and (min-width: 768px) {
     width: 100%;

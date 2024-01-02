@@ -23,25 +23,27 @@
     <title>Oumar Yanni | Interactive card details form app</title>
   </head>
   <body>
+    <!-- Wrapper principal -->
     <div class="container">
-      <form class="form-card-app" action="" name="form-card-app">
-        <div class="form-groups-wrapper-1">
+      <!-- Wrapper pour affichage de la carte bleue -->
+      <div class="card-results">
+
+        <div class="card-results-inner-wrapper">
           <div class="form-group-back-card">
             <div class="back-card-black-headband"></div>
-
-            <div class="back-card-verification-value-band">000</div>
+            <p class="back-card-verification-value-band">000</p>
           </div>
-
+  
           <div class="form-group-front-card">
             <div class="front-card-circles">
               <span class="front-card-full-circle"></span>
               <span class="front-card-empty-circle"></span>
             </div>
-
-            <div class="front-card-number-result">0000 0000 0000 0000</div>
-
+  
+            <p class="front-card-number-result">0000 0000 0000 0000</p>
+  
             <div class="front-card-details">
-              <div class="front-card-holder-name-result">Jane Appleseed</div>
+              <p class="front-card-holder-name-result">Jane Appleseed</p>
               <div class="front-card-dates-result">
                 <span class="front-card-month-result">00</span>
                 /
@@ -50,103 +52,101 @@
             </div>
           </div>
         </div>
+      </div>
+      <!-- /Wrapper pour affichage de la carte bleue -->
 
-        <div class="form-groups-wrapper-2">
-          <div class="form-group-card-details">
-            <label
-              for="card-details-holder-name"
-              class="label-without-flex-basis"
-              >CARDHOLDER NAME</label
-            >
-            <input
-              id="card-details-holder-name"
-              type="text"
-              name="card-details-holder-name"
-              placeholder="e.g. Jane Appleseed"
-            />
-            <span class="" id="card-holder-name-error"></span>
+      <form class="form-card-app" action="" name="form-card-app">
+        <div class="form-group-card-details">
+          <label for="card-details-holder-name" class="label-without-flex-basis"
+            >CARDHOLDER NAME</label
+          >
+          <input
+            id="card-details-holder-name"
+            type="text"
+            name="card-details-holder-name"
+            placeholder="e.g. Jane Appleseed"
+          />
+          <span class="" id="card-holder-name-error"></span>
 
-            <label for="card-details-number" class="label-without-flex-basis"
-              >CARD NUMBER</label
-            >
-            <input
-              id="card-details-number"
-              type="number"
-              name="card-details-number"
-              placeholder="e.g. 1234 5678 9123 0000"
-              maxlength="19"
-            />
-            <span class="" id="card-number-error"></span>
-            <!--  <span class="error" id="input-error"></span> -->
+          <label for="card-details-number" class="label-without-flex-basis"
+            >CARD NUMBER</label
+          >
+          <input
+            id="card-details-number"
+            type="number"
+            name="card-details-number"
+            placeholder="e.g. 1234 5678 9123 0000"
+            maxlength="19"
+          />
+          <span class="" id="card-number-error"></span>
+          <!--  <span class="error" id="input-error"></span> -->
 
-            <div class="card-details-other-wrapper">
-              <div class="card-details-other-wrapper-second-level">
-                <label for="card-details-dates-input" class="label"
-                  >EXP. DATE (MM/YY)</label
-                >
-                <input
-                  id="card-details-dates-input"
-                  type="number"
-                  name="card-details-month-input"
-                  placeholder="MM"
-                />
-                <span class="" id="month-error"></span>
-                <!--  <span class="error" id="input-error"></span> -->
+          <div class="card-details-other-wrapper">
+            <div class="card-details-other-wrapper-second-level">
+              <label for="card-details-dates-input" class="label"
+                >EXP. DATE (MM/YY)</label
+              >
+              <input
+                id="card-details-dates-input"
+                type="number"
+                name="card-details-month-input"
+                placeholder="MM"
+              />
+              <span class="" id="month-error"></span>
+              <!--  <span class="error" id="input-error"></span> -->
 
-                <input
-                  id="card-details-dates-input"
-                  type="number"
-                  name="card-details-year-input"
-                  placeholder="YY"
-                />
-                <span class="" id="year-error"></span>
-                <!-- <span class="error" id="input-error"></span> -->
-              </div>
-
-              <div class="card-details-other-wrapper-second-level">
-                <label for="card-details-cvc-input" class="label">CVC</label>
-                <input
-                  id="card-details-cvc-input"
-                  type="number"
-                  name="card-details-cvc-input"
-                  placeholder="e.g 123"
-                />
-                <span class="" id="cvc-error"></span>
-                <!-- <span class="error" id="input-error"></span> -->
-              </div>
+              <input
+                id="card-details-dates-input"
+                type="number"
+                name="card-details-year-input"
+                placeholder="YY"
+              />
+              <span class="" id="year-error"></span>
+              <!-- <span class="error" id="input-error"></span> -->
             </div>
 
-            <button type="submit" class="display-result-btn">Confirm</button>
+            <div class="card-details-other-wrapper-second-level">
+              <label for="card-details-cvc-input" class="label">CVC</label>
+              <input
+                id="card-details-cvc-input"
+                type="number"
+                name="card-details-cvc-input"
+                placeholder="e.g 123"
+              />
+              <span class="" id="cvc-error"></span>
+              <!-- <span class="error" id="input-error"></span> -->
+            </div>
           </div>
 
-          <div class="footer">
-            <a
-              class="footer-link"
-              href="https://www.linkedin.com/in/oumar-yanni/"
-            >
-              💻 Coding passionately by Oumar</a
-            >
-          </div>
+          <button type="submit" class="display-result-btn">Confirm</button>
         </div>
-
-        <div class="form-groups-wrapper-complete">
-          <img
-            class="icon-complete"
-            src="assets\images\icon-complete.svg"
-            alt=""
-          />
-
-          <div class="thanks-message-complete">THANK YOU!</div>
-
-          <div class="information-message-complete">
-            We've added your card details
-          </div>
-
-          <button type="submit" class="display-result-btn">Continue</button>
-        </div>
-
-        <!-- <div class="submit-btn-wrapper"></div> -->
       </form>
+      <!-- Wrapper pour le formulaire -->
+
+      <!-- Wrapper copyright -->
+
+      <div class="footer">
+        <a class="footer-link" href="https://www.linkedin.com/in/oumar-yanni/">
+          💻 Coding passionately by Oumar</a
+        >
+      </div>
+
+      <div class="hidden thank-you-message-wrapper">
+        <img
+          class="icon-complete"
+          src="assets\images\icon-complete.svg"
+          alt=""
+        />
+
+        <h1 class="thanks-message-complete">THANK YOU!</h1>
+        <p class="information-message-complete">
+          We've added your card details
+        </p>
+
+        <button type="submit" class="display-result-btn">Continue</button>
+      </div>
+
+      <!-- <div class="submit-btn-wrapper"></div> -->
     </div>
 
     <script src="app.js"></script>
