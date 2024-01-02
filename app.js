@@ -73,10 +73,7 @@ function isCardNumberInputValid() {
     "label[for='card-number']"
   );
 
-  const cardNumberInputRawValue = cardNumberInputElement.value.replace(
-    /\s+/g,
-    ""
-  );
+  const cardNumberValue = cardNumberInputElement.value;
 
   cardNumberErrorElement.textContent = "";
 
@@ -92,8 +89,9 @@ function isCardNumberInputValid() {
     return false;
   }
 
-  if (!/^\d{16}$/.test(cardNumberInputRawValue)) {
-    cardNumberErrorElement.textContent = "Wrong format, numbers only";
+  if (cardNumberValue.length !== 16) {
+    cardNumberErrorElement.textContent =
+      "Wrong format, numbers only And 16 digits max";
 
     cardNumberInputElement.classList.add("input-error");
     cardNumberLabelElement.classList.add("label-error");
@@ -117,19 +115,21 @@ cardHolderNameInputElement.addEventListener("input", function () {
 });
 
 cardNumberInputElement.addEventListener("input", function () {
-  let inputValue = cardNumberInputElement.value.replace(/\s+/g, "");
+  let inputValue = cardNumberInputElement.value;
 
   if (inputValue.length > 16) {
     inputValue = inputValue.substring(0, 16);
   }
 
-  cardNumberInputElement.value = formatCardNumber(inputValue);
+  cardNumberInputElement.value = inputValue;
 
-  displayInputData(cardNumberResult, cardNumberInputElement.value);
+  cardNumberResult.textContent = formatCardNumberForDisplay(inputValue);
 });
 
-function formatCardNumber(value) {
-  return value.replace(/(.{4})/g, "$1 ").trim();
+function formatCardNumberForDisplay(value) {
+  const numericValue = value.replace(/\D/g, "");
+
+  return numericValue.replace(/(.{4})/g, "$1 ").trim();
 }
 
 function displayInputData(resultElement, inputValue) {
