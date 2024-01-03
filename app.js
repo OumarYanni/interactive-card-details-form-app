@@ -1,151 +1,203 @@
 const form = document.querySelector(".form-card-app");
-//console.log(form);
 
-// 1. Variables globales (limite au maximum)
-// 2. Fonctions
-// 2.1. utilitaires (e.g. : isCardHolderNameInputValid)
-// 2.2. binding eventListeners
+const holderNameInput = document.querySelector("#holder-name");
+const cardNumInput = document.querySelector("#card-number");
+const monthInput = document.querySelector("input[name='month-input']");
+const yearInput = document.querySelector("input[name='year-input']");
+const cvcInput = document.querySelector("#card-cvc");
 
-form.addEventListener("submit", function (e) {
+const holderNameResult = document.querySelector(".holder-name-result");
+const cardNumResult = document.querySelector(".card-number-result");
+const monthResult = document.querySelector(".month-result");
+const yearResult = document.querySelector(".year-result");
+const cvcResult = document.querySelector(".cvc-result");
+
+form.addEventListener("submit", handleSubmit);
+
+holderNameInput.addEventListener("input", () =>
+  updateDisplay(holderNameResult, holderNameInput.value)
+);
+cardNumInput.addEventListener("input", handleCardNumInput);
+monthInput.addEventListener("input", () => {
+  let monthValue = monthInput.value;
+
+  if (monthValue.length > 2) {
+    monthValue = monthValue.slice(0, 2);
+  }
+
+  monthInput.value = monthValue;
+  updateDisplay(monthResult, monthInput.value);
+});
+yearInput.addEventListener("input", () => {
+  let yearValue = yearInput.value;
+
+  if (yearValue.length > 2) {
+    yearValue = yearValue.slice(0, 2);
+  }
+
+  yearInput.value = yearValue;
+  updateDisplay(yearResult, yearInput.value);
+});
+cvcInput.addEventListener("input", () => {
+  let cvcValue = cvcInput.value;
+
+  if (cvcValue.length > 3) {
+    cvcValue = cvcValue.slice(0, 3);
+  }
+
+  cvcInput.value = cvcValue;
+  updateDisplay(cvcResult, cvcInput.value);
+});
+
+function isNameValid() {
+  const errorElement = document.querySelector(".holder-name-error");
+  const labelElement = document.querySelector("label[for='holder-name']");
+  errorElement.textContent = "";
+
+  if (holderNameInput.value.trim() === "") {
+    errorElement.textContent = "Can't be blank";
+    toggleError(true, holderNameInput, labelElement);
+    return false;
+  }
+
+  toggleError(false, holderNameInput, labelElement);
+  return true;
+}
+
+function isCardNumValid() {
+  const errorElement = document.querySelector(".card-number-error");
+  const labelElement = document.querySelector("label[for='card-number']");
+  errorElement.textContent = "";
+
+  if (cardNumInput.value.trim() === "") {
+    errorElement.textContent = "Can't be blank";
+    toggleError(true, cardNumInput, labelElement);
+    return false;
+  }
+
+  if (cardNumInput.value.length !== 16) {
+    errorElement.textContent =
+      "Wrong format, numbers only & 16 digits required";
+    toggleError(true, cardNumInput, labelElement);
+    return false;
+  }
+
+  toggleError(false, cardNumInput, labelElement);
+  return true;
+}
+
+function isMonthValid() {
+  const errorElement = document.querySelector(".month-error");
+  const labelElement = document.querySelector(
+    "label[for='card-details-dates-input']"
+  );
+  const monthValue = parseInt(monthInput.value.trim(), 10);
+
+  errorElement.textContent = "";
+
+  if (monthInput.value.trim() === "") {
+    errorElement.textContent = "Can't be blank";
+    toggleError(true, monthInput, labelElement);
+    return false;
+  }
+
+  if (!monthValue || monthValue < 1 || monthValue > 12) {
+    errorElement.textContent = "Invalid month, must be between 01 and 12";
+    toggleError(true, monthInput, labelElement);
+    return false;
+  }
+
+  /*toggleError(false, monthInput, labelElement);*/
+
+  return true;
+}
+
+function isYearValid() {
+  const errorElement = document.querySelector(".year-error");
+  const labelElement = document.querySelector(
+    "label[for='card-details-dates-input']"
+  );
+  errorElement.textContent = "";
+
+  if (yearInput.value.trim() === "") {
+    errorElement.textContent = "Can't be blank";
+    toggleError(true, yearInput, labelElement);
+    return false;
+  }
+
+  if (yearInput.value.length !== 2) {
+    errorElement.textContent = "Wrong format, numbers only 2 digits required";
+    return false;
+  }
+
+  return true;
+}
+
+function isCvcValid() {
+  const errorElement = document.querySelector(".cvc-error");
+  const labelElement = document.querySelector("label[for='card-cvc']");
+  errorElement.textContent = "";
+
+  if (cvcInput.value.trim() === "") {
+    errorElement.textContent = "Can't be blank";
+    toggleError(true, cvcInput, labelElement);
+    return false;
+  }
+
+  if (cvcInput.value.length !== 3) {
+    errorElement.textContent = "Wrong format, numbers only & 3 digits required";
+    return false;
+  }
+
+  return true;
+}
+
+function toggleError(isError, inputElem, labelElem) {
+  inputElem.classList.toggle("input-error", isError);
+  labelElem.classList.toggle("label-error", isError);
+}
+
+function handleCardNumInput() {
+  let value = cardNumInput.value.replace(/\D/g, "");
+
+  if (value.length > 16) {
+    value = value.substring(0, 16);
+  }
+
+  cardNumInput.value = value;
+
+  updateDisplay(cardNumResult, formatCardNum(value));
+}
+
+function formatCardNum(value) {
+  return value.replace(/(.{4})/g, "$1 ").trim();
+}
+
+function updateDisplay(elem, value) {
+  elem.textContent = value;
+}
+
+function handleSubmit(e) {
   e.preventDefault();
 
-  const cardHolderNameInputValue = document.querySelector("#holder-name").value;
-  //console.log(cardHolderNameInputValue);
+  const isNameValidFlag = isNameValid();
+  const isCardNumValidFlag = isCardNumValid();
+  const isMonthValidFlag = isMonthValid();
+  const isYearValidFlag = isYearValid();
+  const isCvcValidFlag = isCvcValid();
 
-  const cardNumberInputValue = document.querySelector("#card-number").value;
-
-  const isCardHolderNameValid = isCardHolderNameInputValid();
-
-  const isCardNumberValid = isCardNumberInputValid();
-
-  if (isCardHolderNameValid && isCardNumberValid) {
-    submitForm(cardHolderNameInputValue, cardNumberInputValue);
+  if (
+    isNameValidFlag &&
+    isCardNumValidFlag &&
+    isMonthValidFlag &&
+    isYearValidFlag &&
+    isCvcValidFlag
+  ) {
+    console.log("Card Holder Name:", holderNameInput.value);
+    console.log("Card Number:", cardNumInput.value);
+    console.log("Card Month:", monthInput.value);
+    console.log("Card Year:", yearInput.value);
+    console.log("Card Cvc:", cvcInput.value);
+    console.log("Formulaire soumis !");
   }
-});
-
-const cardHolderNameInputElement = document.querySelector("#holder-name");
-
-function isCardHolderNameInputValid() {
-  let cardHolderNameErrorElement = document.querySelector(".holder-name-error");
-
-  // let cardHolderNameLabelElement
-  // card : /
-  // holder : ✅
-  // name :
-  // label :
-  // element : /
-
-  // let labelDeCartHolderName
-  // let cartholderNameLabel
-
-  let cardHolderNameLabelElement = document.querySelector(
-    "label[for='holder-name']"
-  );
-
-  // let holderNameErrorMessage
-
-  cardHolderNameErrorElement.textContent = "";
-
-  //   const cardHolderNameInputElement = document.querySelector(
-  //     "#holder-name"
-  //   );
-
-  cardHolderNameInputElement.classList.remove("input-error");
-  cardHolderNameLabelElement.classList.remove("label-error");
-
-  if (cardHolderNameInputElement.value.trim() === "") {
-    cardHolderNameErrorElement.textContent = "Can't be blank";
-
-    cardHolderNameInputElement.classList.add("input-error");
-    cardHolderNameLabelElement.classList.add("label-error");
-
-    return false;
-  }
-
-  return true;
-}
-
-const cardNumberInputElement = document.querySelector("#card-number");
-
-function isCardNumberInputValid() {
-  let cardNumberErrorElement = document.querySelector(".card-number-error");
-  let cardNumberLabelElement = document.querySelector(
-    "label[for='card-number']"
-  );
-
-  const cardNumberValue = cardNumberInputElement.value;
-
-  cardNumberErrorElement.textContent = "";
-
-  cardNumberInputElement.classList.remove("input-error");
-  cardNumberLabelElement.classList.remove("label-error");
-
-  if (cardNumberInputElement.value.trim() === "") {
-    cardNumberErrorElement.textContent = "Can't be blank";
-
-    cardNumberInputElement.classList.add("input-error");
-    cardNumberLabelElement.classList.add("label-error");
-
-    return false;
-  }
-
-  if (cardNumberValue.length !== 16) {
-    cardNumberErrorElement.textContent =
-      "Wrong format, numbers only And 16 digits max";
-
-    cardNumberInputElement.classList.add("input-error");
-    cardNumberLabelElement.classList.add("label-error");
-
-    return false;
-  }
-
-  return true;
-}
-
-// const cardHolderNameInput = document.querySelector("#holder-name");
-// console.log(cardHolderNameInput);
-
-const cardHolderNameResult = document.querySelector(".holder-name-result");
-//console.log(cardHolderNameResult);
-
-const cardNumberResult = document.querySelector(".card-number-result");
-
-cardHolderNameInputElement.addEventListener("input", function () {
-  displayInputData(cardHolderNameResult, cardHolderNameInputElement.value);
-});
-
-cardNumberInputElement.addEventListener("input", function () {
-  let inputValue = cardNumberInputElement.value;
-
-  if (inputValue.length > 16) {
-    inputValue = inputValue.substring(0, 16);
-  }
-
-  cardNumberInputElement.value = inputValue;
-
-  cardNumberResult.textContent = formatCardNumberForDisplay(inputValue);
-});
-
-function formatCardNumberForDisplay(value) {
-  const numericValue = value.replace(/\D/g, "");
-
-  return numericValue.replace(/(.{4})/g, "$1 ").trim();
-}
-
-function displayInputData(resultElement, inputValue) {
-  /*const formattedValue = inputValue
-    .replace(/(\d{4})(?=\d)/g, "$1 ")
-    .slice(0, 19);*/
-
-  resultElement.textContent = inputValue;
-}
-
-// cardHolderNameInput.addEventListener(
-//   "#holder-name",
-//   displayInputData
-// );
-
-function submitForm(cardHolderNameInputValue, cardNumberInputValue) {
-  console.log("Card Number:", cardNumberInputValue);
-  console.log("Formulaire soumis !");
 }

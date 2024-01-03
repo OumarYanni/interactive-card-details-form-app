@@ -88,7 +88,7 @@ body {
   height: 2rem;
 }
 
-.verification-value-band {
+.cvc-result {
   background: var(--hit-gray);
   border-radius: 3px;
   width: 14rem;
@@ -224,6 +224,8 @@ body {
 
 .holder-name-error,
 .card-number-error,
+.month-error,
+.year-error,
 .cvc-error {
   color: var(--red);
   padding-bottom: 0.5rem;
@@ -302,7 +304,7 @@ input:focus {
   flex-basis: 100%;
 }*/
 
-/*#card-details-year-input {
+/*#year-input {
   margin-top: 0.3rem;
   margin-bottom: 1rem;
   height: 2.8rem;
