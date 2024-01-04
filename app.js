@@ -1,4 +1,5 @@
 const form = document.querySelector(".form-card-app");
+const thankYouMessage = document.querySelector(".thank-you-message-wrapper");
 
 const holderNameInput = document.querySelector("#holder-name");
 const cardNumInput = document.querySelector("#card-number");
@@ -193,6 +194,9 @@ function handleSubmit(e) {
     isYearValidFlag &&
     isCvcValidFlag
   ) {
+    form.classList.add("hidden");
+    thankYouMessage.classList.remove("hidden");
+
     console.log("Card Holder Name:", holderNameInput.value);
     console.log("Card Number:", cardNumInput.value);
     console.log("Card Month:", monthInput.value);

@@ -30,8 +30,15 @@ body {
 }
 
 .container {
-  @media screen and (min-width: 768px) {
-    height: 100vh;
+  min-height: 100vh;
+  @media screen and (min-width: 1025px) {
+    /*display: flex;*/
+
+    display: grid;
+    grid-template-columns: 1fr 2fr; /* 1/3 pour card-results et 2/3 pour form-card-app */
+    grid-template-rows: 1fr; /* Une seule rangée pour toute la hauteur */
+    min-height: 100vh; /* Hauteur totale du conteneur */
+    align-items: stretch; /* Étire les éléments pour occuper toute la hauteur */
   }
 }
 
@@ -40,23 +47,37 @@ body {
   margin-left: auto;
   margin-right: auto;
 
-  @media screen and (min-width: 768px) {
-    display: flex;
-    width: 100%;
+  display: flex;
+  justify-content: center;
+
+  @media screen and (min-width: 768px) and (max-width: 1024px) {
+    /*display: flex;
+    width: 100%;*/
+
+    max-width: 40%;
+  }
+
+  @media screen and (min-width: 1025px) {
+    grid-column: 2 / 3; /* Prend 2/3 de la largeur */
   }
 }
 
 .card-results {
   background-color: var(--violet);
   color: var(--white);
-  min-height: 15rem;
+  /*min-height: 15rem;*/
   display: flex;
   flex-direction: column;
   margin-bottom: 4rem;
 
   @media screen and (min-width: 768px) {
-    min-height: 25%;
-    min-width: 25%;
+    /*min-height: 25%;
+    min-width: 25%;*/
+  }
+
+  @media screen and (min-width: 1025px) {
+    grid-column: 1 / 2; /* Prend 1/3 de la largeur */
+    margin-bottom: 0;
   }
 }
 
@@ -75,11 +96,18 @@ body {
   height: 10rem;
   padding-top: 1rem;
   position: absolute;
-  align-self: end;
+  /*align-self: end;*/
 
   top: 20px;
   right: -40px;
   z-index: 0;
+
+  margin: 1rem 1rem 0 0;
+
+  @media screen and (min-width: 1025px) {
+    top: 400px;
+    right: -180px;
+  }
 }
 
 .black-headband {
@@ -100,6 +128,8 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+
+  margin: 0;
 }
 
 .front-card {
@@ -115,7 +145,14 @@ body {
 
   position: absolute;
   left: -40px;
-  bottom: 0px;
+  bottom: -53px;
+
+  margin: 0 0 0 1rem;
+
+  @media screen and (min-width: 1025px) {
+    bottom: -140px;
+    left: 100px;
+  }
 }
 
 .circles-wrapper {
@@ -190,6 +227,7 @@ body {
   justify-content: center;
 
   @media screen and (min-width: 768px) {
+    max-width: min-content;
   }
 }
 
@@ -277,7 +315,16 @@ input:focus {
   display: flex;
 }
 
-.dates-cvc-wrapper {
+.dates-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+
+  @media screen and (min-width: 768px) {
+    /*width: 50%;*/
+  }
+}
+
+.cvc-wrapper {
   display: flex;
   flex-wrap: wrap;
 
@@ -345,6 +392,8 @@ input:focus {
   border-radius: 8px;
   background: var(--violet);
   color: var(--white);
+
+  align-self: center;
 }
 
 .footer {
@@ -352,9 +401,19 @@ input:focus {
   justify-content: center;
   padding: 1rem;
 
-  @media screen and (min-width: 768px) {
-    display: flex;
-    justify-content: center;
+  @media screen and (min-width: 1025px) {
+    grid-column: 2 / 3; /* Aligné avec form-card-app en largeur */
+    position: absolute;
+    /*bottom: 0;*/
+    max-width: 66.66%; /* Correspond à 2/3 de la largeur */
+
+    /*align-self: center; /* Aligné à la fin de la rangée */
+    /*width: 66.66%; /* Utilise la pleine largeur de la colonne */
+    /*text-align: center; /* Centre le contenu du footer */
+
+    top: 90%;
+    left: 66.66%;
+    transform: translate(-50%, -50%);
   }
 }
 
