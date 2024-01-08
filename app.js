@@ -1,6 +1,3 @@
-const form = document.querySelector(".form-card-app");
-const thankYouMessage = document.querySelector(".thank-you-message-wrapper");
-
 const holderNameInput = document.querySelector("#holder-name");
 const cardNumInput = document.querySelector("#card-number");
 const monthInput = document.querySelector("input[name='month-input']");
@@ -13,11 +10,10 @@ const monthResult = document.querySelector(".month-result");
 const yearResult = document.querySelector(".year-result");
 const cvcResult = document.querySelector(".cvc-result");
 
-form.addEventListener("submit", handleSubmit);
-
 holderNameInput.addEventListener("input", () =>
   updateDisplay(holderNameResult, holderNameInput.value)
 );
+
 cardNumInput.addEventListener("input", handleCardNumInput);
 monthInput.addEventListener("input", () => {
   let monthValue = monthInput.value;
@@ -29,6 +25,7 @@ monthInput.addEventListener("input", () => {
   monthInput.value = monthValue;
   updateDisplay(monthResult, monthInput.value);
 });
+
 yearInput.addEventListener("input", () => {
   let yearValue = yearInput.value;
 
@@ -39,6 +36,7 @@ yearInput.addEventListener("input", () => {
   yearInput.value = yearValue;
   updateDisplay(yearResult, yearInput.value);
 });
+
 cvcInput.addEventListener("input", () => {
   let cvcValue = cvcInput.value;
 
@@ -178,30 +176,43 @@ function updateDisplay(elem, value) {
   elem.textContent = value;
 }
 
-function handleSubmit(e) {
-  e.preventDefault();
 
-  const isNameValidFlag = isNameValid();
-  const isCardNumValidFlag = isCardNumValid();
-  const isMonthValidFlag = isMonthValid();
-  const isYearValidFlag = isYearValid();
-  const isCvcValidFlag = isCvcValid();
+function handleSubmit() {
+  const form = document.querySelector(".form-card-app");
+  const thankYouMessage = document.querySelector(".thank-you-message-wrapper");
 
-  if (
-    isNameValidFlag &&
-    isCardNumValidFlag &&
-    isMonthValidFlag &&
-    isYearValidFlag &&
-    isCvcValidFlag
-  ) {
-    form.classList.add("hidden");
-    thankYouMessage.classList.remove("hidden");
+  form.addEventListener("submit", function(e) {
+    e.preventDefault();
 
-    console.log("Card Holder Name:", holderNameInput.value);
-    console.log("Card Number:", cardNumInput.value);
-    console.log("Card Month:", monthInput.value);
-    console.log("Card Year:", yearInput.value);
-    console.log("Card Cvc:", cvcInput.value);
-    console.log("Formulaire soumis !");
-  }
+    const isNameValidFlag = isNameValid();
+    const isCardNumValidFlag = isCardNumValid();
+    const isMonthValidFlag = isMonthValid();
+    const isYearValidFlag = isYearValid();
+    const isCvcValidFlag = isCvcValid();
+  
+    if (
+      isNameValidFlag &&
+      isCardNumValidFlag &&
+      isMonthValidFlag &&
+      isYearValidFlag &&
+      isCvcValidFlag
+    ) {
+      form.classList.add("hidden");
+      thankYouMessage.classList.remove("hidden");
+  
+      console.log("Card Holder Name:", holderNameInput.value);
+      console.log("Card Number:", cardNumInput.value);
+      console.log("Card Month:", monthInput.value);
+      console.log("Card Year:", yearInput.value);
+      console.log("Card Cvc:", cvcInput.value);
+      console.log("Formulaire soumis !");
+    }
+  })  
 }
+
+function main() {
+  handleSubmit()
+}
+
+main()
+
