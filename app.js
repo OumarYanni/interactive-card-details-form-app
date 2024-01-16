@@ -6,12 +6,6 @@ const monthInput = document.querySelector("input[name='month-input']");
 const yearInput = document.querySelector("input[name='year-input']");
 const cvcInput = document.querySelector("#card-cvc");
 
-const holderNameResult = document.querySelector(".holder-name-result");
-const cardNumResult = document.querySelector(".card-number-result");
-const monthResult = document.querySelector(".month-result");
-const yearResult = document.querySelector(".year-result");
-const cvcResult = document.querySelector(".cvc-result");
-
 function isHolderNameValid(value) {
   const errorElement = document.querySelector(".holder-name-error");
   //const labelElement = document.querySelector("label[for='holder-name']");
@@ -27,6 +21,8 @@ function isHolderNameValid(value) {
 }
 
 function handleHolderName() {
+  const holderNameResult = document.querySelector(".holder-name-result");
+
   holderNameInput.addEventListener("input", function () {
     holderNameResult.textContent = this.value;
   });
@@ -45,6 +41,8 @@ function handleCardNumInput() {
   // const cardNumResult = document.querySelector(".card-number-result");
 
   cardNumInput.addEventListener("input", function () {
+    const cardNumResult = document.querySelector(".card-number-result");
+
     let value = cardNumInput.value.replace(/\D/g, "");
 
     if (value.length > 16) {
@@ -100,6 +98,8 @@ function isMonthValid(value) {
 
 function handleMonthInput() {
   monthInput.addEventListener("input", function () {
+    const monthResult = document.querySelector(".month-result");
+
     let monthValue = monthInput.value;
 
     if (monthValue.length > 2) {
@@ -132,6 +132,8 @@ function isYearValid(value) {
 
 function handleYearInput() {
   yearInput.addEventListener("input", function () {
+    const yearResult = document.querySelector(".year-result");
+
     let yearValue = yearInput.value;
 
     if (yearValue.length > 2) {
@@ -164,6 +166,8 @@ function isCvcValid(value) {
 
 function handleCvcInput() {
   cvcInput.addEventListener("input", function () {
+    const cvcResult = document.querySelector(".cvc-result");
+
     let cvcValue = cvcInput.value;
 
     if (cvcValue.length > 3) {
